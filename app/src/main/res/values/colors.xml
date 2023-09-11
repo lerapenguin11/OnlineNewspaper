@@ -10,4 +10,5 @@
     <color name="color_accent">#F75D2B</color>
     <color name="text_background">#1A0D05</color>
     <color name="text_background2">#A1A1A1</color>
+    <color name="background">#f9f9f9</color>
 </resources>
