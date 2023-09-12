@@ -7,4 +7,6 @@
     <string name="page1">Trending</string>
     <string name="page2">Today news</string>
     <string name="page3">Politics</string>
+    <string name="trending_in_my_topic">Trending in My topic</string>
+    <string name="today_trending">Today trending🔥</string>
 </resources>
