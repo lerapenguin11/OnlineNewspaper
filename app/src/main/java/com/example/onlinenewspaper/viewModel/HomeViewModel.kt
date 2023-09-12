@@ -19,4 +19,22 @@ class HomeViewModel : ViewModel(){
 
         return mutableData
     }
+
+    fun getResultTodayNews() : LiveData<MutableList<NewsModel>> {
+        val mutableData = MutableLiveData<MutableList<NewsModel>>()
+        repository.getNewsListReading(Constants.getTodayNews()).observeForever { list ->
+            mutableData.value = list
+        }
+
+        return mutableData
+    }
+
+    fun getResultPoliticsNews() : LiveData<MutableList<NewsModel>> {
+        val mutableData = MutableLiveData<MutableList<NewsModel>>()
+        repository.getNewsListReading(Constants.getPoliticsNews()).observeForever { list ->
+            mutableData.value = list
+        }
+
+        return mutableData
+    }
 }

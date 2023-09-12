@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Online Newspaper</string>
     <string name="home">Home</string>
     <string name="saved">Saved</string>
@@ -16,4 +16,16 @@
 
     <string name="trending_today_title">The plane flying from Hurghada to Nizhny Novgorod urgently landed in Kazan is informed about this by Rambler</string>
     <string name="trending_today_text">The Onur Air airline, operating a flight from Hurghada to Nizhny Novgorod, made an emergency landing at Kazan airport due to weather conditions at Strigino airport. The Transport Prosecutor\'s office is checking the circumstances, according to the Telegram channel of the Volga Transport Prosecutor\'s Office. This is reported by Rambler.</string>
+
+    <string name="today_news_title1">Biden intends to speak at the UN General Assembly in New York</string>
+    <string name="today_news_text1" tools:ignore="TypographyDashes">WASHINGTON, 12 Sep – RIA Novosti. US President Joe Biden will address the UN General Assembly on September 19, White House spokeswoman Karin Jean-Pierre said. President Biden will visit New York on September 19-20 to attend the 78th session of the UN General Assembly. In addition to his speech on September 19, President Biden will meet with world leaders to discuss cooperation to counter threats to international peace and security, promote global prosperity and protect human rights, Jean-Pierre said in a statement. The events of the high-level week of the UN General Assembly session will be held from September 19 to 26.</string>
+    <string name="today_news_date1">September 12, 2023</string>
+
+    <string name="politic_news_title1">Kim Jong-un\'s foreign visits</string>
+    <string name="politic_news_text1" tools:ignore="TypographyDashes">Until 2018, the leader of the DPRK, Kim Jong-un, did not leave the country. On March 25-28, 2018, at the invitation of Chinese Leader Xi Jinping, the first visit of North Korean leader Kim Jong Un to China took place. Xi Jinping held talks with Kim Jong Un at the People\'s Assembly House in Beijing. Xi Jinping and his wife Peng Liyuan hosted a welcome banquet for the leader of the DPRK and his wife Lee Sol Ju and watched an artistic performance together. Kim Jong-un also visited an exhibition demonstrating the innovative achievements of the Chinese Academy of Sciences. The events were also attended by Premier of the State Council of the People\'s Republic of China Li Keqiang, member of the Standing Committee of the Politburo of the CPC Central Committee Wang Huning, Deputy Chairman of the People\'s Republic of China Wang Qishan.</string>
+    <string name="politic_news_date1">September 12, 2023</string>
+    <string name="politics_today">Politics today🔥</string>
+
+    <string name="politics_news_today_title">The election commission of the Krasnoyarsk Territory recognized the election of the governor as held</string>
+    <string name="politics_news_today_text" tools:ignore="TypographyDashes">KRASNOYARSK, 12 Sep - RIA Novosti. The elections in the Krasnoyarsk Territory have been recognized as valid and valid, Mikhail Kotyukov, who received 70.21% of the votes, is considered elected to the post of governor, the election commission of the region reports. The gubernatorial elections were held on September 8-10. There were also elections of deputies of the Krasnoyarsk City Council, by-elections for one person to the State Duma and the legislative assembly of the region. The election commission recognized the ex-mayor of Krasnoyarsk Sergey Eremin as an elected deputy of the State Duma, and Alexey Tumanin as a deputy of the regional parliament.</string>
 </resources>

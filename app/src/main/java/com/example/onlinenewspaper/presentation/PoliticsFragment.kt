@@ -5,56 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.onlinenewspaper.R
+import com.example.onlinenewspaper.databinding.FragmentPoliticsBinding
+import com.example.onlinenewspaper.databinding.FragmentTodayNewsBinding
+import com.example.onlinenewspaper.presentation.adapter.NewsAdapter
+import com.example.onlinenewspaper.viewModel.HomeViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PoliticsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PoliticsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding : FragmentPoliticsBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var viewModel : HomeViewModel
+    private val adapter = NewsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_politics, container, false)
+
+        _binding = FragmentPoliticsBinding.inflate(inflater, container, false)
+
+        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+
+        observeDataPolitics()
+        setPoliticsNews()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PoliticsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PoliticsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setPoliticsNews() {
+        binding.tvTitleTodayTrendingNews.setText(R.string.politics_news_today_title)
+        binding.tvTextNewsTrending.setText(R.string.politics_news_today_text)
+
+        Glide.with(requireContext())
+            .load("https://cdnn21.img.ria.ru/images/07e7/09/0b/1895530756_0:48:3221:1860_1920x0_80_0_0_223b48a6e016dbad47217a2a431d34d5.jpg.webp")
+            .into(binding.iconNews)
     }
+
+    private fun observeDataPolitics() {
+        binding.rvTrending.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.rvTrending.adapter = adapter
+
+        viewModel.getResultPoliticsNews().observe(viewLifecycleOwner, Observer {
+            adapter.setItem(it)
+        })
+    }
+
 }
