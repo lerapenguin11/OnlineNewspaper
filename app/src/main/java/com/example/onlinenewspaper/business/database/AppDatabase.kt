@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.onlinenewspaper.business.model.FavoriteModel
 import com.example.onlinenewspaper.business.model.NewsModel
 
-@Database(entities = [NewsModel::class, FavoriteModel::class], version = 1)
+@Database(entities = [NewsModel::class, FavoriteModel::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun newsDao(): NewsDao
     abstract fun favoriteDao(): FavoriteDao
@@ -21,7 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "news_database"
+                    "news_database_3"
                 ).build()
                 INSTANCE = instance
                 instance

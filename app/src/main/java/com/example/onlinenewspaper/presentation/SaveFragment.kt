@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlinenewspaper.R
 import com.example.onlinenewspaper.business.database.AppDatabase
@@ -23,7 +24,7 @@ import com.example.onlinenewspaper.viewModel.SaveViewModel
 class SaveFragment : Fragment() {
     private var _binding : FragmentSaveBinding? = null
     private val binding get() = _binding!!
-    private val adapter = FavoriteAdapter()
+    private lateinit var adapter : FavoriteAdapter
     private lateinit var viewModelFav : SaveViewModel
 
     override fun onCreateView(
@@ -41,6 +42,8 @@ class SaveFragment : Fragment() {
         val viewModelFactoryFav = FavViewModelFactory(repository)
         viewModelFav = ViewModelProvider(this, viewModelFactoryFav).get(SaveViewModel::class.java)
 
+        adapter = FavoriteAdapter(viewModelFav)
+
         observeDataSave()
 
         return binding.root
@@ -56,5 +59,10 @@ class SaveFragment : Fragment() {
                 adapter.setItem(it)
             }
         })
+
+        val swipeToDeleteCallback = adapter.SwipeToDeleteCallback(requireContext())
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(binding.rvTrending)
     }
+
 }

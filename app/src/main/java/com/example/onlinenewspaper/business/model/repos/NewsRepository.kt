@@ -28,7 +28,9 @@ class NewsRepository(private val newsDao: NewsDao, private val favoriteDao: Favo
     }
 
     suspend fun deleteFavorite(favorite: FavoriteModel) {
-        favoriteDao.deleteFavorite(favorite)
+        withContext(Dispatchers.IO) {
+            favoriteDao.deleteFavorite(favorite)
+        }
     }
 
     fun isNewsFavorite(newsId: Int): LiveData<Boolean> {

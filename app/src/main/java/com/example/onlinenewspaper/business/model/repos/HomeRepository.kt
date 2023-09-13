@@ -15,10 +15,11 @@ class HomeRepository {
             val title = i.title
             val text = i.text
             val date = i.date
+            val id = i.id
 
             val listNewsModel = NewsModel(
                 icon = icon, title = title,
-                text = text, date = date
+                text = text, date = date, id = id
             )
             list.add(listNewsModel)
         }

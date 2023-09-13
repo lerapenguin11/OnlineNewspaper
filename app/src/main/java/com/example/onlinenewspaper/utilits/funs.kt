@@ -17,16 +17,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.room.ColumnInfo
 import com.bumptech.glide.Glide
 import com.example.onlinenewspaper.business.model.FavoriteModel
 import com.example.onlinenewspaper.viewModel.NewsViewModel
 import com.example.onlinenewspaper.viewModel.SaveViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 fun replaceFragmentMain(fagmnt: Fragment, aStack: Boolean = true) {
     if (aStack) {
@@ -62,7 +60,8 @@ fun getDialogDetails(
     new: NewsModel,
     context: Context,
     viewModelNews: NewsViewModel,
-    viewModelFav: SaveViewModel
+    viewModelFav: SaveViewModel,
+    viewLifecycleOwner: LifecycleOwner
 ){
     val dialog = Dialog(context, R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -86,15 +85,17 @@ fun getDialogDetails(
     btArrow.setOnClickListener { dialog.cancel() }
 
     btSave.setOnClickListener {
-        if (viewModelNews.isNewsFavorite(newsId = new.id).value == true){
-            Toast.makeText(context, "Новость уже добавлена в избранное!!!", Toast.LENGTH_SHORT).show()
-        } else{
-            viewModelFav.viewModelScope.launch {
-                Toast.makeText(context, "добавлена в избранное!!!", Toast.LENGTH_SHORT).show()
-                viewModelFav.insertFavorite(favorite = FavoriteModel(newsId = new.id, icon = new.icon,
-                    title = new.title, text = new.text, date = new.date))
+        viewModelNews.isNewsFavorite(newsId = new.id).observe(viewLifecycleOwner, Observer {isFavorite ->
+            if(isFavorite){
+                Toast.makeText(context, "Новость уже добавлена в избранное!!!", Toast.LENGTH_SHORT).show()
+            } else{
+                viewModelFav.viewModelScope.launch {
+                    viewModelFav.insertFavorite(favorite = FavoriteModel(newsId = new.id, icon = new.icon,
+                        title = new.title, text = new.text, date = new.date)
+                    )
+                }
             }
-        }
+        })
     }
 
     dialog.show()

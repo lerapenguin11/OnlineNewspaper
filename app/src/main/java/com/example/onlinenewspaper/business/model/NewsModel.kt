@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class NewsModel (
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    var id: Int,
     @ColumnInfo(name = "icon")
     val icon : String,
     @ColumnInfo(name = "title")

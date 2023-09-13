@@ -61,6 +61,12 @@ class TodayNewsFragment : Fragment(), NewsListener {
     }
 
     override fun getDetailsNews(new: NewsModel) {
-        getDialogDetails(new = new, requireContext(), viewModelNews, viewModelFav)
+        getDialogDetails(
+            new = new,
+            requireContext(),
+            viewModelNews,
+            viewModelFav,
+            viewLifecycleOwner
+        )
     }
 }

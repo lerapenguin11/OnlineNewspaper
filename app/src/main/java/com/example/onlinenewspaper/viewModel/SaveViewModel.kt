@@ -14,7 +14,7 @@ class SaveViewModel(private val repository: NewsRepository) : ViewModel() {
         repository.insertFavorite(favorite)
     }
 
-    suspend fun deleteFavorite(favorite: FavoriteModel) {
+    suspend fun deleteFavorite(favorite: FavoriteModel) = viewModelScope.launch{
         repository.deleteFavorite(favorite)
     }
 }
