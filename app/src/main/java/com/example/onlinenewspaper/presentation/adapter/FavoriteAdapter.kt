@@ -17,10 +17,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.onlinenewspaper.R
 import com.example.onlinenewspaper.business.model.FavoriteModel
+import com.example.onlinenewspaper.presentation.adapter.listener.FavListener
 import com.example.onlinenewspaper.viewModel.SaveViewModel
 import kotlinx.coroutines.launch
 
-class FavoriteAdapter(private val viewModel : SaveViewModel) : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
+class FavoriteAdapter(private val viewModel : SaveViewModel,
+                        private val listener : FavListener) : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
 
     private val favList = mutableListOf<FavoriteModel>()
 
@@ -35,6 +37,7 @@ class FavoriteAdapter(private val viewModel : SaveViewModel) : RecyclerView.Adap
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val newsItem = favList[position]
         holder.bind(newsItem)
+        holder.itemView.setOnClickListener { onClickItem(position) }
     }
 
     fun setItem(newList: List<FavoriteModel>) {
@@ -62,6 +65,11 @@ class FavoriteAdapter(private val viewModel : SaveViewModel) : RecyclerView.Adap
         viewModel.viewModelScope.launch{
             viewModel.deleteFavorite(news)
         }
+    }
+
+    private fun onClickItem(position: Int){
+        val news = favList[position]
+        listener.getDetailFav(news)
     }
 
     inner class SwipeToDeleteCallback(context: Context) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {

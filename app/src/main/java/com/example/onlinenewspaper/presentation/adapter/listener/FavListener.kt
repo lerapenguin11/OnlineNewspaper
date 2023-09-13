@@ -4,5 +4,5 @@ import com.example.onlinenewspaper.business.model.FavoriteModel
 
 interface FavListener {
 
-    fun getDeleteFav(fav : FavoriteModel)
+    fun getDetailFav(fav : FavoriteModel)
 }

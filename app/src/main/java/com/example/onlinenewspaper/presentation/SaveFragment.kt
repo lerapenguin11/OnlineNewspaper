@@ -1,27 +1,33 @@
 package com.example.onlinenewspaper.presentation
 
+import android.app.Dialog
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.onlinenewspaper.R
 import com.example.onlinenewspaper.business.database.AppDatabase
+import com.example.onlinenewspaper.business.model.FavoriteModel
 import com.example.onlinenewspaper.business.model.repos.NewsRepository
 import com.example.onlinenewspaper.databinding.FragmentHomeBinding
 import com.example.onlinenewspaper.databinding.FragmentSaveBinding
 import com.example.onlinenewspaper.presentation.adapter.FavoriteAdapter
 import com.example.onlinenewspaper.presentation.adapter.HomePagerAdapter
+import com.example.onlinenewspaper.presentation.adapter.listener.FavListener
 import com.example.onlinenewspaper.viewModel.FavViewModelFactory
 import com.example.onlinenewspaper.viewModel.NewsViewModel
 import com.example.onlinenewspaper.viewModel.NewsViewModelFactory
 import com.example.onlinenewspaper.viewModel.SaveViewModel
 
-class SaveFragment : Fragment() {
+class SaveFragment : Fragment(), FavListener {
     private var _binding : FragmentSaveBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter : FavoriteAdapter
@@ -42,7 +48,7 @@ class SaveFragment : Fragment() {
         val viewModelFactoryFav = FavViewModelFactory(repository)
         viewModelFav = ViewModelProvider(this, viewModelFactoryFav).get(SaveViewModel::class.java)
 
-        adapter = FavoriteAdapter(viewModelFav)
+        adapter = FavoriteAdapter(viewModelFav, this)
 
         observeDataSave()
 
@@ -65,4 +71,29 @@ class SaveFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(binding.rvTrending)
     }
 
+    override fun getDetailFav(fav: FavoriteModel) {
+        val dialog = Dialog(requireContext(), android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(com.example.onlinenewspaper.R.layout.full_screen_deails_new)
+        dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog.window?.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        dialog.window?.statusBarColor = ContextCompat.getColor(requireContext(), android.R.color.transparent)
+
+        val icon : ImageView = dialog.findViewById(com.example.onlinenewspaper.R.id.icon_news)
+        val titleNews : TextView = dialog.findViewById(com.example.onlinenewspaper.R.id.tv_title_news_detail)
+        val textNews : TextView = dialog.findViewById(com.example.onlinenewspaper.R.id.tv_text_news_detail)
+        val dateNews : TextView = dialog.findViewById(com.example.onlinenewspaper.R.id.tv_date_detail)
+        val btArrow : ImageView = dialog.findViewById(com.example.onlinenewspaper.R.id.ic_arrow)
+        val btSave : ConstraintLayout = dialog.findViewById(com.example.onlinenewspaper.R.id.bt_save)
+
+        btSave.visibility = View.GONE
+        btArrow.setOnClickListener { dialog.cancel() }
+
+        Glide.with(requireContext()).load(fav.icon).into(icon)
+        titleNews.setText(fav.title)
+        textNews.setText(fav.text)
+        dateNews.setText(fav.date)
+
+        dialog.show()
+    }
 }
