@@ -28,4 +28,5 @@
 
     <string name="politics_news_today_title">The election commission of the Krasnoyarsk Territory recognized the election of the governor as held</string>
     <string name="politics_news_today_text" tools:ignore="TypographyDashes">KRASNOYARSK, 12 Sep - RIA Novosti. The elections in the Krasnoyarsk Territory have been recognized as valid and valid, Mikhail Kotyukov, who received 70.21% of the votes, is considered elected to the post of governor, the election commission of the region reports. The gubernatorial elections were held on September 8-10. There were also elections of deputies of the Krasnoyarsk City Council, by-elections for one person to the State Duma and the legislative assembly of the region. The election commission recognized the ex-mayor of Krasnoyarsk Sergey Eremin as an elected deputy of the State Duma, and Alexey Tumanin as a deputy of the regional parliament.</string>
+    <string name="save">Save</string>
 </resources>

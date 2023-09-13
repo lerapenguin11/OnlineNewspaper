@@ -4,11 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "news")
-data class NewsModel (
-    @PrimaryKey(autoGenerate = false)
+@Entity(tableName = "favorites")
+data class FavoriteModel(
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    var id: Int = 0,
+    @ColumnInfo(name = "newsId")
+    val newsId: Int,
     @ColumnInfo(name = "icon")
     val icon : String,
     @ColumnInfo(name = "title")

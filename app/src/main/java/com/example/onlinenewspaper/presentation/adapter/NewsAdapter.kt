@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.onlinenewspaper.R
 import com.example.onlinenewspaper.business.model.NewsModel
+import com.example.onlinenewspaper.presentation.adapter.listener.NewsListener
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(val listener : NewsListener) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     private val newsList = mutableListOf<NewsModel>()
 
@@ -25,6 +26,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val newsItem = newsList[position]
         holder.bind(newsItem)
+        holder.itemView.setOnClickListener { listener.getDetailsNews(newsItem) }
     }
 
     fun setItem(newList: List<NewsModel>) {
