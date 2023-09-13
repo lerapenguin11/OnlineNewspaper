@@ -1,51 +1,38 @@
-package com.example.onlinenewspaper.presentation
+package com.example.onlinenewspaper.presentation.onBoarding
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import androidx.work.*
 import com.example.onlinenewspaper.R
-import com.example.onlinenewspaper.databinding.ActivityMainBinding
-import com.example.onlinenewspaper.utilits.APP_ACTIVITY
+import com.example.onlinenewspaper.presentation.MainActivity
+import com.example.onlinenewspaper.utilits.APP_ACTIVITY_ONBOARDING
 import com.example.onlinenewspaper.utilits.CheckInactiveWorker
-import com.example.onlinenewspaper.utilits.replaceFragmentMain
-import com.example.onlinenewspaper.utilits.setStatusBarGradiantMain
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.example.onlinenewspaper.utilits.setStatusBarGradiantOnBoarding
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
+class OnBoardingActivity : AppCompatActivity() {
     private val lastActiveTimeKey = "lastActiveTime"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        APP_ACTIVITY = this
-        setStatusBarGradiantMain(this)
-        setContentView(binding.root)
-
-        replaceFragmentMain(HomeFragment())
-        binding.bottomNavigationView.setOnItemSelectedListener {
-
-            when(it.itemId){
-
-                R.id.home -> replaceFragmentMain(HomeFragment())
-                R.id.save -> replaceFragmentMain(SaveFragment())
-            }
-            true
-        }
+        setContentView(R.layout.activity_on_boarding)
+        APP_ACTIVITY_ONBOARDING = this
+        setStatusBarGradiantOnBoarding(this)
+        setViewPager()
 
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -75,11 +62,39 @@ class MainActivity : AppCompatActivity() {
         workManager.getWorkInfoByIdLiveData(checkInactiveWorkRequest.id)
             .observe(this, androidx.lifecycle.Observer { workInfo ->
                 if (workInfo.state == WorkInfo.State.SUCCEEDED || workInfo.state == WorkInfo.State.FAILED){
-                    val updatedLastActiveTimeString = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Calendar.getInstance().time)
+                    val updatedLastActiveTimeString = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(
+                        Calendar.getInstance().time)
                     editor.putString(lastActiveTimeKey, updatedLastActiveTimeString)
                     editor.apply()
                 }
             })
+    }
+
+    private fun setViewPager() {
+        val fragList = ArrayList<Fragment>()
+        fragList.add(ThirstFragment())
+        fragList.add(SecondFragment())
+        fragList.add(ThirdFragment())
+
+        val adapterViewPager = OnBoardingNewAdapter(
+            fragList,
+            this.supportFragmentManager,
+            lifecycle
+        )
+        val close = findViewById<ImageView>(R.id.finish)
+
+        val viewPager = findViewById<ViewPager2>(R.id.view_pager)
+        viewPager.adapter = adapterViewPager
+        val indicator = findViewById<DotsIndicator>(R.id.dots_indicator)
+        indicator.attachTo(viewPager)
+
+        close.setOnClickListener { v: View? ->
+            val intent = Intent(
+                this@OnBoardingActivity,
+                MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     @SuppressLint("NotificationPermission")

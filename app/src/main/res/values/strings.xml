@@ -12,7 +12,16 @@
 
     <string name="trending_top_title1">Wakanesia releases 99 ships with coal following relaxing</string>
     <string name="trending_top_text1">Technologically savvy first-order optimal strategies gain alignment. Critical mass nail jelly to the hothouse wall at the end of the day. Face time looks great, can we try it a different way, or creativity requires you to murder your children and circle back around. Product management breakout fastworks. </string>
-    <string name="trending_top_date1">January 09, 2022</string>
+    <string name="trending_top_date1">September 11, 2023</string>
+    <string name="trending_top_title2">The UN reacted to Podolyak\'s criticism</string>
+    <string name="trending_top_text2">The official representative of the UN Secretary General, Stephane Dujarric, commenting on the unflattering words of the adviser to the head of the office of Vladimir Zelensky, Mikhail Podolyak, to the organization, said that criticism is not news to the UN – the UN continues to work hard. Criticism of the UN is not news. We continue our work with diligence, as always, Dujarric said in response to a request to comment on Podolyak\'s words. Earlier, Podolyak called the UN an office for making money for a good old age, and the IAEA and the Red Cross - fictitious organizations that litter the consciousness with their garbage assessments. In turn, Russia\'s permanent representative to the UN Vasily Nebenzia called Podolyak\'s words a loss of self-control in the face of the imminent military and political bankruptcy of the Kiev regime.</string>
+    <string name="trending_top_date2">September 14, 2023</string>
+    <string name="trending_top_title3">Biden expressed condolences to the victims of the flood in Libya</string>
+    <string name="trending_top_text3">US President Joe Biden expressed his condolences in connection with the catastrophic flooding in Libya and promised to increase the assistance provided.
+(Wife) Jill and I send our deepest condolences to all the families who lost loved ones in the devastating floods in Libya, the American leader said in a statement.
+He said that the United States is urgently allocating funds to humanitarian organizations and discussing additional support measures with the Libyan authorities and the UN.
+The number of victims of floods in eastern Libya caused by cyclone Daniel has exceeded 2,000 people, several thousand are missing, Osama Hamad, the head of the government appointed by parliament, which is based in the Libyan city of Sirte, said earlier. The cities of Susa and Derna in the east of the country were declared disaster zones.</string>
+    <string name="trending_top_date3">September 12, 2023</string>
 
     <string name="trending_today_title">The plane flying from Hurghada to Nizhny Novgorod urgently landed in Kazan is informed about this by Rambler</string>
     <string name="trending_today_text">The Onur Air airline, operating a flight from Hurghada to Nizhny Novgorod, made an emergency landing at Kazan airport due to weather conditions at Strigino airport. The Transport Prosecutor\'s office is checking the circumstances, according to the Telegram channel of the Volga Transport Prosecutor\'s Office. This is reported by Rambler.</string>
@@ -20,13 +29,43 @@
     <string name="today_news_title1">Biden intends to speak at the UN General Assembly in New York</string>
     <string name="today_news_text1" tools:ignore="TypographyDashes">WASHINGTON, 12 Sep – RIA Novosti. US President Joe Biden will address the UN General Assembly on September 19, White House spokeswoman Karin Jean-Pierre said. President Biden will visit New York on September 19-20 to attend the 78th session of the UN General Assembly. In addition to his speech on September 19, President Biden will meet with world leaders to discuss cooperation to counter threats to international peace and security, promote global prosperity and protect human rights, Jean-Pierre said in a statement. The events of the high-level week of the UN General Assembly session will be held from September 19 to 26.</string>
     <string name="today_news_date1">September 12, 2023</string>
+    <string name="today_news_title2">The Belarusian police will work out the Games of the CIS countries in an enhanced mode</string>
+    <string name="today_news_text2">The Belarusian police will serve in an enhanced version during the CIS Games in the country, the necessary training has been carried out to ensure public safety, said Alexander Kupchenya, head of the main department of law enforcement and Prevention of the public security police of the Ministry of Internal Affairs of Belarus.
+The CIS Games will be held from August 4 to 14 in 11 cities of Belarus. More than two thousand participants from 23 countries will come to the republic – both countries of the Commonwealth and non-member states. Athletes will compete in 20 sports.
+From August 2 to August 14, departmental operational and situational headquarters in the cities of sports events and working groups at all sports facilities will work. For the period of the competition, the personnel of the internal affairs bodies and internal troops are transferred to an enhanced version of service," Kupchenya said at a press conference in Minsk.</string>
+    <string name="today_news_date2">September 13, 2023</string>
+    <string name="today_news_title3">In El Salvador, nine people were killed during a stampede at a football stadium</string>
+    <string name="today_news_text3">Nine people were killed in a stampede at the Salvadoran football stadium Cuscatlan" during the game of the teams Alliance and FAS, two victims were hospitalized in critical condition, the national police said.
+The death toll after the crush at the Cuscatlan Stadium is 9 people. Several injured fans have been taken to nearby hospitals, at least two of them are in critical condition, the national police said on Twitter.
+The crush at one of the entrances of the capital's stadium, according to police, was provoked by fans who tried to get to the podium. The match was stopped.
+The press service of the President of El Salvador said that the reason for the incident was the sale of fake tickets - disappointed fans tried to force their way into the stands.
+The newspaper El Salvador, citing eyewitnesses, reported that before the tragic events, the police at the stadium used tear gas against fans, which caused a stampede.</string>
+    <string name="today_news_date3">September 13, 2023</string>
 
     <string name="politic_news_title1">Kim Jong-un\'s foreign visits</string>
     <string name="politic_news_text1" tools:ignore="TypographyDashes">Until 2018, the leader of the DPRK, Kim Jong-un, did not leave the country. On March 25-28, 2018, at the invitation of Chinese Leader Xi Jinping, the first visit of North Korean leader Kim Jong Un to China took place. Xi Jinping held talks with Kim Jong Un at the People\'s Assembly House in Beijing. Xi Jinping and his wife Peng Liyuan hosted a welcome banquet for the leader of the DPRK and his wife Lee Sol Ju and watched an artistic performance together. Kim Jong-un also visited an exhibition demonstrating the innovative achievements of the Chinese Academy of Sciences. The events were also attended by Premier of the State Council of the People\'s Republic of China Li Keqiang, member of the Standing Committee of the Politburo of the CPC Central Committee Wang Huning, Deputy Chairman of the People\'s Republic of China Wang Qishan.</string>
     <string name="politic_news_date1">September 12, 2023</string>
     <string name="politics_today">Politics today🔥</string>
+    <string name="politic_news_title2">In London, they named the reason for Kiev\'s losses of 40 percent of drones</string>
+    <string name="politic_news_text2">Ukraine is losing 40% of drones due to pilot errors, said the chief of the British General Staff, Patrick Sanders.
+"I am shocked that 40% of losses in Ukraine's developing drone company are due to pilot error," Sanders said at an arms show, his words are quoted by the British government website.
+He noted that in the conditions of "heavy struggle for the electromagnetic spectrum" during the conflict, automatic systems can fail, so the skills of pilots become more important.</string>
+    <string name="politic_news_date2">September 13, 2023</string>
+    <string name="politic_news_title3">The Pentagon told how long it will take for the AFU pilots to pilot the F-16</string>
+    <string name="politic_news_text3">Training of Ukrainian pilots to pilot fourth-generation F-16 fighters in the United States will take about six months to nine months, said the candidate for the post of Chief of Staff of the US Air Force, General David Alvin.
+"It is obvious that each of the students differs in their level of knowledge and the pace of mastering the course. However, the course we take usually takes about six months. So if they had started (passing) it here in the next month or so, (the end of training) would have happened in early spring," Alvin said during a hearing before the US Senate Armed Services Committee.</string>
+    <string name="politic_news_date3">September 13, 2023</string>
+    <string name="politic_news_title4">Musk is offended by Gates, considers him a hypocrite, the businessman\'s biographer said</string>
+    <string name="politic_news_text4" tools:ignore="TypographyEllipsis">American businessman Elon Musk is offended by the entrepreneur and former head of Microsoft corporation Bill Gates for selling Tesla shares, considers him a madman and a hypocrite, according to a new biography of Musk authored by Walter Isaacson, which went on sale on Tuesday. "There was one problem in their relationship. Gates on a short sale (a type of securities sale transaction - ed.) got rid of Tesla shares, fearing that they would fall in price. Gates... he turned out to be wrong and lost $ 1.5 billion, and Max found out about it and just fumed," Isaacson writes in his book.</string>
+    <string name="politic_news_date4">September 15, 2023</string>
 
     <string name="politics_news_today_title">The election commission of the Krasnoyarsk Territory recognized the election of the governor as held</string>
     <string name="politics_news_today_text" tools:ignore="TypographyDashes">KRASNOYARSK, 12 Sep - RIA Novosti. The elections in the Krasnoyarsk Territory have been recognized as valid and valid, Mikhail Kotyukov, who received 70.21% of the votes, is considered elected to the post of governor, the election commission of the region reports. The gubernatorial elections were held on September 8-10. There were also elections of deputies of the Krasnoyarsk City Council, by-elections for one person to the State Duma and the legislative assembly of the region. The election commission recognized the ex-mayor of Krasnoyarsk Sergey Eremin as an elected deputy of the State Duma, and Alexey Tumanin as a deputy of the regional parliament.</string>
     <string name="save">Save</string>
+    <string name="online">Online</string>
+    <string name="newspaper">Newspaper</string>
+    <string name="brief_spotlights_to_save_you_time_we_provide_news_briefs_letting_you_know_the_top_stories_at_a_glance">Brief Spotlights: To save you time, we provide news briefs, letting you know the top stories at a glance.</string>
+    <string name="finish">Finish</string>
+    <string name="it_is_your_trusted_source_of_information_to_help_you_stay_informed_and_make_informed_decisions">It is your trusted source of information to help you stay informed and make informed decisions.</string>
+    <string name="next">Next</string>
 </resources>
